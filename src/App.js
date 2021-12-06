@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import config from './config/config.json';
 import CuAvatar from "./components/Avatar";
-import {Descriptions} from '@douyinfe/semi-ui';
+import {Descriptions, Button, Notification} from '@douyinfe/semi-ui';
+import {IconBolt, IconTriangleUp, IconLikeThumb, IconLikeHeart} from '@douyinfe/semi-icons';
 import jsonp from 'jsonp';
 
 
@@ -28,9 +29,38 @@ class App extends React.Component {
                     key: "总结",
                     value: "loading"
                 }
-            ]
+            ],
+            accomplished: false
         };
         document.title = "今天" + this.c.name + "摸鱼了吗";
+    }
+
+    sendLike = () => {
+        Notification.open({
+            title: '谢谢你~',
+            content: '感谢你的支持！',
+            duration: 3,
+            icon: <IconLikeHeart style={{color: "red"}}/>
+        });
+        window.location = "mailto:" + this.c.contact + "?subject=今天也辛苦啦&body=今天已经很努力啦，放松一下吧~";
+    }
+
+    punch = () => {
+        Notification.open({
+            title: '在努力了',
+            content: 'QAQ',
+            duration: 3,
+        });
+        window.location = "mailto:" + this.c.contact + "?subject=还在摸鱼？&body=今日事今日毕！快点起床！";
+    }
+
+    sendNotice = () => {
+        Notification.open({
+            title: '氮气加速！',
+            content: '战意涌上来啦！',
+            duration: 3,
+        });
+        window.location = "mailto:" + this.c.contact + "?subject=加油！&body=坚持就是胜利！";
     }
 
     componentDidMount() {
@@ -38,7 +68,6 @@ class App extends React.Component {
             if (error) console.log(error)
             else {
                 let _data = data.data[6].grand_total;
-                console.log(_data);
                 this.setState({
                     workingData: [
                         {
@@ -51,12 +80,15 @@ class App extends React.Component {
                         },
                         {
                             key: "完成度",
-                            value: (_data.total_seconds/(this.c.goal*3600)*100).toFixed(2)+"%"
+                            value: (_data.total_seconds / (this.c.goal * 3600) * 100).toFixed(2) + "%"
                         },
                         {
                             key: "总结",
-                            value: (this.c.goal > _data.hours) ? (this.c.offWorkTime < new Date().getHours()) ? "摸鱼了" : "还在奋斗" : "努力100%"
-                        }]
+                            value: (this.c.goal > _data.hours) ? (this.c.offWorkTime < new Date().getHours()) ? (
+                                <span style={{color: "#DD4A68"}}>摸鱼了</span>) : "还在奋斗" : "好耶！"
+                        }
+                    ],
+                    accomplished: this.c.goal < _data.hours
                 });
             }
         });
@@ -64,11 +96,25 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
-                <header>
-                    <h2><CuAvatar c={this.c}/><br/>今天{this.c.name}摸鱼了吗？</h2>
-                    <Descriptions data={this.state.workingData} row size="large"/>
-                </header>
+            <div className="wrapper">
+                <div className="App">
+                    <header>
+                        <h2><CuAvatar c={this.c}/><br/>今天{this.c.name}摸鱼了吗？</h2>
+                        <Descriptions data={this.state.workingData} row style={{textAlign: "right"}}/>
+                        <div className={"btn-bar"}>
+                            {this.state.accomplished ?
+                                <Button theme='solid' type='primary' size={"large"} style={{borderRadius: "1000rem"}}
+                                        onClick={this.sendLike}
+                                        icon={
+                                            <IconLikeThumb/>}>表扬一下！</Button> : (this.c.offWorkTime < new Date().getHours()) ?
+                                    <Button theme='solid' type='danger' size={"large"} style={{borderRadius: "1000rem"}}
+                                            onClick={this.punch}
+                                            icon={<IconBolt/>}>还敢摸鱼？加班！</Button> :
+                                    <Button theme='solid' type='primary' size={"large"} onClick={this.sendNotice}
+                                            style={{borderRadius: "1000rem"}} icon={<IconTriangleUp/>}>给他加加油</Button>}
+                        </div>
+                    </header>
+                </div>
             </div>
         );
     }
