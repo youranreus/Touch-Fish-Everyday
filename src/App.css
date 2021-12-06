@@ -1,1 +1,14 @@
+.App {
+    width: 800px;
+    min-height: 800px;
+    margin: 5rem auto;
+    /*box-shadow: 0 6px 12px 0 rgba(31, 35, 41, 0.08);*/
+    /*padding: 2rem;*/
+    /*box-sizing: border-box;*/
+    /*border-radius: 2rem;*/
+}
 
+.App header h2 {
+    font-size: 5rem;
+    margin-top: 0;
+}
