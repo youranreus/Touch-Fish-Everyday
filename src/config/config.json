@@ -3,5 +3,7 @@
   "avatar": "https://sdn.geekzu.org/avatar/87e0f8d2f0f70987061cec6376cb7f97?s=200&r=G&d=",
   "contact": "youranreus@qq.com",
   "blog": "https://blog.mitsuha.space",
-  "wakatimeApi": "https://wakatime.com/share/@29eb13fc-3734-4961-8f0a-28fa9f0eace4/c2bbca16-afb1-4f71-aef7-b6594e408cde.json"
+  "wakatimeApi": "https://wakatime.com/share/@29eb13fc-3734-4961-8f0a-28fa9f0eace4/c2bbca16-afb1-4f71-aef7-b6594e408cde.json",
+  "goal": 8,
+  "offWorkTime": 19
 }
