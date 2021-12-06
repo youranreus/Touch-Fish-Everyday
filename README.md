@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# 今天你摸鱼了吗？
+*看到我摸鱼的话请拍拍我*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 这是什么
+这是一个无聊的时候看到wakatime的时候诞生的摸鱼产物。本质上是个小小的单页WEB应用，根据wakatime提供的API来判断你是否摸鱼，并展示给到访的所有人。
 
-## Available Scripts
+### 具体功能
+ - 展示你当天的工作时间
+ - 判断你的时间是否到达目标值
+ - 没了
 
-In the project directory, you can run:
+### 食用说明
+ - clone
+ - 修改配置文件`src/config/config.json`
+ - build
+ - enjoy it
 
-### `npm start`
+### 配置文件说明
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| 字段        | 说明                                                         | 样例                                    |
+| ----------- | ------------------------------------------------------------ | --------------------------------------- |
+| name        | 昵称                                                         | 季悠然                                  |
+| avatar      | 头像url                                                      | https://example.com/avatar.png          |
+| contact     | 联系方式（用于提醒你）                                       | example@ex.com                          |
+| blog        | 博客链接                                                     | https://blog.mitsuha.space              |
+| wakatimeApi | 你的wakatime的Api                                            | https://https://wakatime.com/share/.... |
+| goal        | 每日目标工作时间                                             | 8                                       |
+| offWorkTime | 下班时间（24小时制），下班时间前没达到目标工作时间属于还在努力，下班时间后还没达到工作时间我直接重拳出击 | 19                                      |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### todo
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 优化提示（server酱等等）
+- 支持更多api
+- ...
