@@ -4,13 +4,23 @@
  */
 import React from 'react';
 import {Button, Notification} from "@douyinfe/semi-ui";
-import {IconBolt, IconLikeHeart, IconLikeThumb, IconTriangleUp,IconCheckboxTick} from "@douyinfe/semi-icons";
+import {IconBolt, IconLikeHeart, IconLikeThumb, IconTriangleUp, IconCheckboxTick} from "@douyinfe/semi-icons";
 
 class BtnBar extends React.Component {
     constructor(props) {
         super(props);
         this.c = props.c;
-        this.accomplished = props.accomplished;
+        this.state = {
+            accomplished: props.accomplished
+        };
+        this.show = props.show;
+    }
+
+    static getDerivedStateFromProps(nextProps) {
+        const {accomplished} = nextProps;
+        return {
+            accomplished,
+        };
     }
 
     sendLike = () => {
@@ -44,7 +54,7 @@ class BtnBar extends React.Component {
     render() {
         return (
             <div className="BtnBar">
-                {this.accomplished ?
+                {this.state.accomplished ?
                     <Button theme='solid' type='primary' size={"large"} style={{borderRadius: "1000rem"}}
                             onClick={this.sendLike}
                             icon={
@@ -55,7 +65,10 @@ class BtnBar extends React.Component {
                         <Button theme='solid' type='primary' size={"large"} onClick={this.sendNotice}
                                 style={{borderRadius: "1000rem"}} icon={<IconTriangleUp/>}>给他加加油</Button>}
 
-
+                <Button theme='solid' type="primary" size={"large"}
+                        style={{borderRadius: "1000rem", marginLeft: "1.5rem"}} icon={<IconCheckboxTick/>} onClick={this.show}>
+                    都干了些啥？
+                </Button>
             </div>
         );
     }
