@@ -16,7 +16,7 @@ class CuAvatar extends React.Component {
 
     render() {
         return (
-            this.userData.avatar !== '' ? <Avatar size={"large"} src={this.userData.avatar}/> : <Avatar size={"large"}>{this.userData.name}</Avatar>
+            this.userData.avatar !== '' ? <Avatar size={"large"} src={this.userData.avatar}/> : <Avatar size={"large"}>{this.userData.name.slice(0,1)}</Avatar>
         );
     }
 }
