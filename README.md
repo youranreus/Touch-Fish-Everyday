@@ -29,6 +29,7 @@
 | wakatimeApi | 你的wakatime的Api                                            | https://https://wakatime.com/share/.... |
 | goal        | 每日目标工作时间（小时）                                     | 8                                       |
 | offWorkTime | 下班时间（24小时制），下班时间前没达到目标工作时间属于还在努力，下班时间后还没达到工作时间我直接重拳出击 | 19                                      |
+| customMsg   | 自定义提示语                                                 | 这个这个，看着原本的填就差不多了        |
 
 
 
