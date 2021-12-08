@@ -3,6 +3,7 @@ import './App.css';
 import config from './config/config.json';
 import CuAvatar from "./components/Avatar";
 import BtnBar from "./components/BtnBar";
+import Detail from "./components/Detail";
 import {Descriptions} from '@douyinfe/semi-ui';
 import jsonp from 'jsonp';
 
@@ -30,9 +31,16 @@ class App extends React.Component {
                     value: "loading"
                 }
             ],
-            accomplished: false
+            accomplished: false,
+            showDetail: false
         };
         document.title = "今天" + this.c.name + "摸鱼了吗";
+    }
+
+    show = () => {
+        this.setState({
+            showDetail: !this.state.showDetail
+        })
     }
 
     componentDidMount() {
@@ -60,7 +68,7 @@ class App extends React.Component {
                                 <span style={{color: "#DD4A68"}}>摸鱼了</span>) : "还在奋斗" : "好耶！"
                         }
                     ],
-                    accomplished: this.c.goal < _data.hours
+                    accomplished: this.c.goal <= _data.hours
                 });
             }
         });
@@ -73,7 +81,8 @@ class App extends React.Component {
                     <header>
                         <h2><CuAvatar c={this.c}/><br/>今天{this.c.name}摸鱼了吗？</h2>
                         <Descriptions data={this.state.workingData} row style={{textAlign: "right"}}/>
-                        <BtnBar c={this.c} accomplished={this.state.accomplished}/>
+                        <Detail isOpen={this.state.showDetail} languageApi={this.c.wakatimeLanguage} editorApi={this.c.wakatimeEditor}/>
+                        <BtnBar c={this.c} accomplished={this.state.accomplished} show={this.show}/>
                     </header>
                 </div>
             </div>
