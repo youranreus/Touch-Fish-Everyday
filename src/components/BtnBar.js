@@ -66,7 +66,7 @@ class BtnBar extends React.Component {
                                 style={{borderRadius: "1000rem"}} icon={<IconTriangleUp/>}>给他加加油</Button>}
 
                 <Button theme='solid' type="primary" size={"large"}
-                        style={{borderRadius: "1000rem", marginLeft: "1.5rem"}} icon={<IconCheckboxTick/>} onClick={this.show}>
+                        style={{borderRadius: "1000rem"}} icon={<IconCheckboxTick/>} onClick={this.show} className={"btn"}>
                     都干了些啥？
                 </Button>
             </div>

@@ -30,3 +30,25 @@
     padding: 0.875rem 2rem;
     text-align: center;
 }
+
+.btn {
+    margin: 1rem!important;
+}
+
+@media (max-width: 830px) {
+    .App {
+        width: 95%;
+    }
+
+    .App header h2 {
+        font-size: 1.5rem;
+    }
+
+    .BtnBar {
+        bottom: 0;
+    }
+
+    .btn {
+        margin: .2rem!important;
+    }
+}
