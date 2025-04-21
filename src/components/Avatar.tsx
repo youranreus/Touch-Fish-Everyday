@@ -8,7 +8,7 @@
 'use client'
 
 import { FC } from 'react'
-import { Avatar } from '@douyinfe/semi-ui'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 interface CuAvatarProps {
   c: {
@@ -21,9 +21,7 @@ const CuAvatar: FC<CuAvatarProps> = ({ c }) => {
   const { avatar, name } = c;
   const fallbackName = name ? name.charAt(0) : '?';
 
-  return avatar
-    ? <Avatar size="large" src={avatar} />
-    : <Avatar size="large">{fallbackName}</Avatar>;
+  return <Avatar className='size-18'><AvatarImage src={avatar} /><AvatarFallback>{fallbackName}</AvatarFallback></Avatar>
 };
 
 export default CuAvatar;

@@ -8,7 +8,7 @@
 'use client'
 
 import { FC, useEffect, useRef } from 'react'
-import { Collapsible, Card, Row, Col } from '@douyinfe/semi-ui'
+import { Collapsible, CollapsibleContent } from "@/components/collapsible"
 import * as echarts from 'echarts/core'
 import { PieChart } from 'echarts/charts'
 import { TitleComponent, TooltipComponent } from 'echarts/components'
@@ -97,25 +97,17 @@ const Detail: FC<DetailProps> = ({ languageApi, editorApi, isOpen }) => {
 
   return (
     <div className="Detail">
-      <Collapsible isOpen={isOpen} keepDOM>
-        <Row style={{ marginTop: '1rem' }}>
-          <Col span={12}>
-            <Card style={{ margin: '1rem' }}>
-              <div
-                ref={languageChartRef}
-                style={{ width: '100%', height: '150px' }}
-              ></div>
-            </Card>
-          </Col>
-          <Col span={12}>
-            <Card style={{ margin: '1rem' }}>
-              <div
-                ref={editorChartRef}
-                style={{ width: '100%', height: '150px' }}
-              ></div>
-            </Card>
-          </Col>
-        </Row>
+      <Collapsible open={isOpen}>
+        <CollapsibleContent className="CollapsibleContent">
+          <div className="flex flex-col md:flex-row gap-4 m-4">
+            <div className="flex-1 p-5 bg-white rounded-md border">
+              <div ref={languageChartRef} style={{ width: '100%', height: '150px' }}></div>
+            </div>
+            <div className="flex-1 p-5 bg-white rounded-md border">
+              <div ref={editorChartRef} style={{ width: '100%', height: '150px' }}></div>
+            </div>
+          </div>
+        </CollapsibleContent>
       </Collapsible>
     </div>
   );

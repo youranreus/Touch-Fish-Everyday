@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Toaster } from "@/components/ui/sonner"
 import config from '@/app/config/config.json';
-import CuAvatar from '@/app/components/Avatar';
-import BtnBar from '@/app/components/Btnbar';
-import Detail from '@/app/components/Detail';
-import { Descriptions } from '@douyinfe/semi-ui';
+import CuAvatar from '@/components/Avatar';
+import BtnBar from '@/components/Btnbar';
+import Detail from '@/components/Detail';
 import jsonp from 'jsonp';
 
 type WorkDataItem = {
@@ -55,7 +55,7 @@ export default function Home() {
       const summary =
         c.goal > total.hours
           ? currentHour > c.offWorkTime
-            ? <span style={{ color: '#DD4A68' }}>摸鱼了</span>
+            ? <span className='text-[#DD4A68]'>摸鱼了</span>
             : '还在奋斗'
           : '好耶！';
 
@@ -72,16 +72,25 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="w-[800px] p-8 rounded-2xl bg-[#FAFAFA] shadow-xl box-border max-w-[95%]">
+      <div className="w-[800px] p-8 rounded-2xl bg-[#fafafa] shadow-xl box-border max-w-[95%] text-card-foreground">
         <header>
-          <h2 className="md:text-5xl text-3xl leading-[1.7] mt-0 mb-4">
+          <h2 className="md:text-4xl text-2xl mt-0 mb-4 font-semibold">
             <CuAvatar c={c} />
             <br />
-            今天{c.name}摸鱼了吗？
+            今天 {c.name} 摸鱼了吗？
           </h2>
-
-          <Descriptions data={workingData} row style={{ textAlign: 'right' }} />
-
+          <div className="w-full">
+            <table className="w-full text-sm border-separate border-spacing-y-2">
+              <tbody className="flex flex-wrap">
+                {workingData.map((item, index) => (
+                  <tr key={index} className="inline-flex flex-col pr-15">
+                    <th className="text-left text-gray-500 font-medium">{item.key}</th>
+                    <td className="text-xl font-semibold">{item.value}</td>
+                    </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <Detail
             isOpen={showDetail}
             languageApi={c.wakatimeLanguage}
@@ -91,6 +100,7 @@ export default function Home() {
           <BtnBar c={c} accomplished={accomplished} show={toggleDetail} />
         </header>
       </div>
+      <Toaster />
     </div>
   );
 }
