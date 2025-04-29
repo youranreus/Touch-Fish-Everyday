@@ -18,17 +18,23 @@
  - build
  - enjoy it
 
+### 环境变量配置
+| 字段        | 说明                                                         | 样例                                    |
+| ----------- | ------------------------------------------------------------ | --------------------------------------- |
+| NEXT_PUBLIC_NAME | 昵称 | 季悠然                                  |
+| NEXT_PUBLIC_AVATAR | 头像 URL | https://example.com/avatar.png          |
+| NEXT_PUBLIC_CONTACT | 联系方式（用于提醒你） | example@ex.com                          |
+| NEXT_PUBLIC_BLOG | 博客链接  | https://blog.mitsuha.space              |
+| NEXT_PUBLIC_WAKATIME_API | 你的 Wakatime 的 时间动态 API  | https://https://wakatime.com/share/.... |
+| NEXT_PUBLIC_WAKATIME_LANG | 你的 Wakatime 的 编程语言动态 API | https://https://wakatime.com/share/.... |
+| NEXT_PUBLIC_WAKATIME_EDITOR | 你的 Wakatime 的 编辑器动态 API | https://https://wakatime.com/share/.... |
+| NEXT_PUBLIC_GOAL | 每日目标工作时间（小时）                                     | 8                                       |
+| NEXT_PUBLIC_OFFWORK_TIME | 下班时间（24小时制），下班时间前没达到目标工作时间属于还在努力，下班时间后还没达到工作时间我直接重拳出击 | 19                                      |
+
 ### 配置文件说明
 
 | 字段        | 说明                                                         | 样例                                    |
 | ----------- | ------------------------------------------------------------ | --------------------------------------- |
-| name        | 昵称                                                         | 季悠然                                  |
-| avatar      | 头像url                                                      | https://example.com/avatar.png          |
-| contact     | 联系方式（用于提醒你）                                       | example@ex.com                          |
-| blog        | 博客链接                                                     | https://blog.mitsuha.space              |
-| wakatimeApi | 你的wakatime的Api                                            | https://https://wakatime.com/share/.... |
-| goal        | 每日目标工作时间（小时）                                     | 8                                       |
-| offWorkTime | 下班时间（24小时制），下班时间前没达到目标工作时间属于还在努力，下班时间后还没达到工作时间我直接重拳出击 | 19                                      |
 | customMsg   | 自定义提示语                                                 | 这个这个，看着原本的填就差不多了        |
 
 
